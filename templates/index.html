@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Prediction Model</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Medical Prediction Model</h1>
+    
+    <div class="form-group">
+        <label for="model_type">Select Model Type:</label>
+        <select id="model_type" onchange="updateForm()">
+            <option value="seizure">Seizure Prediction</option>
+            <option value="stroke">Stroke Prediction</option>
+        </select>
+    </div>
+
+    <form id="input_form" onsubmit="event.preventDefault(); predict();">
+        <!-- Dynamic form fields will be inserted here by JavaScript -->
+    </form>
+
+    <button type="submit" onclick="predict()">Predict</button>
+
+    <div id="result"></div>
+    <div id="error"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
